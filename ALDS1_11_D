@@ -1,0 +1,27 @@
+n,m = map(int,raw_input().strip().split(' '))
+graph = [[] for i in range(n)]
+for i in range(m):
+    s,t = map(int,raw_input().strip().split(' '))
+    graph[s].append(t)
+    graph[t].append(s)
+color = {}
+c = 0
+for i in range(n):
+    if not i in color:
+        que = [i]
+        color[i] = c
+        while len(que) > 0:
+            u = que[0]
+            for v in graph[u]:
+                if not v in color:
+                    color[v] = c
+                    que.append(v)
+            del que[0]
+        c += 1
+q = int(raw_input())
+for i in range(q):
+    s,t = map(int,raw_input().strip().split(' '))
+    if color[s] == color[t]:
+        print 'yes'
+    else:
+        print 'no'
