@@ -1,2 +1,2 @@
 # AIZU-ONLINE-JUDGE
-I usu python.
+I usu python3.
